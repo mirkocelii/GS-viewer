@@ -27,3 +27,15 @@ Modules:
  - ploidy-level
  - busco-duplication
 
+Dependencies:
+- R
+- R-data-table
+- R-seqinr
+- ragtag
+- samtoolds
+- bedtools
+- seqtk
+- blast
+- repeatmasker
+- trf
+
