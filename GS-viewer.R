@@ -34,11 +34,11 @@ stop()
 command <- args[1]
 
 switch(command,
-       "scaffold" = source("Ragtag_visualization_v10.r"),
-       "repeat-profile" = source("Telomere_finder.R"),
-       "rDNA-finder" = source("rDNA_finder.R"),
-       "coverage-plot" = source("Coverage_plot.R"),
-       "ploidy-level" = source("Ploidy_levels.R"),
-       "busco-duplication" = source("Plot_Busco_dup.R"),
+       "scaffold" = source("scripts/Ragtag_visualization_v10.r"),
+       "repeat-profile" = source("scripts/Telomere_finder.R"),
+       "rDNA-finder" = source("scripts/rDNA_finder.R"),
+       "coverage-plot" = source("scripts/Coverage_plot.R"),
+       "ploidy-level" = source("scripts/Ploidy_levels.R"),
+       "busco-duplication" = source("scripts/Plot_Busco_dup.R"),
        stop(paste("Command not found:", command))
 )
