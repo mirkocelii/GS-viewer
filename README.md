@@ -1,8 +1,8 @@
 
-# GS-viewer
 <p align="center">
   <img src="GSviewer logo.png" alt="GS-viewer logo" width="300"/>
 </p>
+# GS-viewer
 
 GS-viewer is a modular toolkit designed for the visualization and analysis of genome assembly outputs. It encompasses various functionalities, including:
 
