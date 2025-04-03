@@ -63,12 +63,6 @@ Rscript GS-viewer.R <module> [options]
  - busco-duplication
 
 ### GS-viewer.R scaffold 
-### GS-viewer.R repeat-profile 
-### GS-viewer.R rDNA-finder 
-### GS-viewer.R coverage-plot 
-### GS-viewer.R busco-duplication 
-### GS-viewer.R ploidy-level 
-
 ```bash
 Identify rDNA sequences from a given genome using rDNA sequences from a close species
 
@@ -111,7 +105,8 @@ USAGE: Rscript GS-viewer.r scaffold --ref=<reference.fa> [ options ]
   - samtools
   - bedtools
   - seqtk [for Gap filling fasta files only]
-``` 
+```
+
 ### GS-viewer.R rDNA-finder 
 ```bash
 
@@ -137,7 +132,7 @@ USAGE: Rscript GS-viewer.r scaffold --ref=<reference.fa> [ options ]
   - samtools
   - bedtools
 
-  you can find rDNA sequences on NCBI or SILVA [ -> https://www.arb-silva.de/ ]
+you can find rDNA sequences on NCBI or SILVA [ https://www.arb-silva.de/ ]
 
  make sure you rDNA sequences have comparable values with the following:
      --> rDNA 18S  1800 bp
@@ -240,7 +235,8 @@ USAGE: Rscript GS-viewer.r scaffold --ref=<reference.fa> [ options ]
    --wind=             | default 100Kb/100000)                 [ string                   ] window size [ default = 1000Kb / 1000000 ; numeric-only, Mb,Kb,bp character accepted  ]
    --plot.h=           | Height in inches of PDF output files  [ default 18               ]
    --plot.w=           | Width in inches of PDF output files   [ default 35               ]
- Modules required:
+
+Modules required:
   - R
   - R packages: data.table
   - samtools
@@ -265,7 +261,8 @@ USAGE: Rscript GS-viewer.r scaffold --ref=<reference.fa> [ options ]
    --hap.fa=           |  output fasta file of each haplotype set draft  [ default absent   ]
    --plot.h=           |  Height in inches of PDF output files           [ default 18       ]
    --plot.w=           |  Width in inches of PDF output files            [ default 35       ]
- Modules required:
+
+Modules required:
   - R
   - R packages: data.table
   - samtools
