@@ -13,7 +13,7 @@ args <- commandArgs(TRUE)
         cat(
         "Visualization of Scaffold(s) created with Ragtag \n",
         " \n",
-        "USAGE: Rscript GS-viewer.r --ref=<reference.fa> [ options ] \n",
+        "USAGE: Rscript GS-viewer.r scaffold --ref=<reference.fa> [ options ] \n",
         " \n",
         "positional arguments:\n",
         "  --ref=              |  REQUIRED            [ .fasta or .fa file       ]  reference genome fasta file used with Ragtag. It must be the same for all scaffold loaded","\n",
