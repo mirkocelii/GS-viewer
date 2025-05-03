@@ -10,7 +10,7 @@ args <- commandArgs(TRUE)
     {
         cat('\n')
         cat(
-        " Diplace busco scorere and exact duplication percentages \n",
+        " Quantifies and plot the exact copy number of each duplicated gene from BUSCO \n",
         " \n",
         "USAGE: Rscript Plot_Busco_dup.R --grep=Busco_folder \n",
         " \n",
@@ -369,7 +369,7 @@ cat("\n   --> Saving Gene Tables  \n")
 
 
 NAMES$"out" = gsub("run_embryophyta_odb10/full_table.tsv","Busco_genes_with_duplication.tsv",NAMES$"full" )
-for (i in names(L7)) { j=NAMES[ NAMES$"short"==i, ]$"out" ; write.table( L7[[i]], file = j, col.names=TRUE, row.names=F, quote=F, sep="\t")    }
+for (i in names(L7)) { j=NAMES[ NAMES$"short"==i, ]$"out" ; write.table( L7[[i]], file = gsub(".tsv",".edit.tsv",j), col.names=TRUE, row.names=F, quote=F, sep="\t")    }
 
 
 
