@@ -32,7 +32,7 @@ args <- commandArgs(TRUE)
         " \n",
         " other parameters:\n",
         "  --sort.size=        |  sort by size                                                [ default = FALSE  ]  ","\n",
-        "  --tel=              |  identify a specififc telomeric patter                       [ default = absent ]  ","\n",
+        "  --tel.seq=          |  identify a specififc telomeric patter                       [ default = absent ]  ","\n",
         "  --diploid=          |  group chromosomes by name ( e.g Chr1.A + Chr1.B  )          [ default = absent ]  ","\n",
         "  --polyploid=        |  group chromosomes by name ( e.g Chr1.A + Chr1.B  )          [ default = absent ]  ","\n",
         "  --ref.name=         |  replace GenBank IDs with chromosome names from reference.fna[ default = absent ]  ","\n",
@@ -1990,6 +1990,7 @@ if ( is.na(add.dots)==FALSE )
     dots.leg = unique(dots[, -(1:3) ])
     dots$"chr" = gsub("_RagTag","", dots$"chr")
     dots = merge(dots, bbb, by="chr")
+    dots$"pt.bg" = dots$"color"
  #   print(bbb)
     print(dots)
     cat('\n --->  adding to Legend \n\n')
@@ -2186,14 +2187,14 @@ if (nrow(LASTT)>0) text(  LASTT$"pos.tel" +MAX/100 , LASTT$"pos", tolower(LASTT$
 if ( nrow(gap)> 0)  segments(gap$"ref.end", gap$"pos"-0.5, gap$"ref.end",gap$"pos"+0.5, col="black", lwd=2)
 if ( nrow(gap)> 0)  points(gap$"ref.end",  gap$"pos", type="p", pch=23, cex= 2  ,col="black", bg="yellow", lwd=3)
 
-if ( is.na(add.dots)==FALSE )  points(dots$"start",  dots$"pos", type="p", pch= dots$"pch", cex= dots$"size" ,col=dots$"color")
+if ( is.na(add.dots)==FALSE )  points(dots$"start",  dots$"pos", type="p", pch= dots$"pch", cex= dots$"size" ,col=dots$"color",bg=dots$"color")
 
 
 # legeng
 LEGEND = data.frame( "name"=c("Telomere presence + seq","non-canonical Telomeres","Repeat %","Tandem Repeat %","GAP","rDNA 28S","rDNA 5S") , pch=c(22,22,22,22,23,22,22) , col=c("black","black","black","black","black","black","black"),  pt.bg=c("blue","cornflowerblue",GREEN,GRAY,"yellow","orange","magenta"), stringsAsFactors=FALSE)
 
 if ( is.na(GeneGFF)==FALSE  ) LEGEND = rbind(         data.frame( "name"="Gene %"               , pch=22            , col="black",  pt.bg=RED             , stringsAsFactors=FALSE) , LEGEND )
-if ( is.na(add.dots)==FALSE ) LEGEND = rbind( LEGEND, data.frame( "name"=dots.leg$"legend.name" , pch=dots.leg$"pch", col="black",  pt.bg=dots.leg$"color", stringsAsFactors=FALSE)  )
+if ( is.na(add.dots)==FALSE ) LEGEND = rbind( LEGEND, data.frame( "name"=dots.leg$"legend.name" , pch=dots.leg$"pch", col=dots.leg$"color",  pt.bg=dots.leg$"color", stringsAsFactors=FALSE)  )
 
 legend("bottomright", LEGEND$"name", pch=LEGEND$"pch",  col=LEGEND$col , pt.bg=LEGEND$"pt.bg", cex= LG.CEX, bg="white",pt.cex=PT.SIZE)
 #legend("bottom",    rDNA_chr$"legend", pch=rDNA_chr$"pch",  col=rDNA_chr$col , pt.bg=rDNA_chr$"pt.bg", cex= LG.CEX, bg="white",pt.cex=PT.SIZE)
@@ -2265,6 +2266,9 @@ if ( nrow(gap)> 0)  points(gap$"ref.end",  gap$"pos", type="p", pch=23, cex= 2  
 # internal tel
 if(nrow(trf.filt)>0)  segments(trf.filt$"mid", trf.filt$"pos"-0.5, trf.filt$"mid",trf.filt$"pos"+0.0, col="blue", lwd=5 , lend=1)
 if(nrow(trf.filt)>0)  text( trf.filt.text$"chr.len" +MAX/20, trf.filt.text$"POS"-0.25, trf.filt.text$"LAB", cex=1, adj=0, col="blue")  
+
+if ( is.na(add.dots)==FALSE )  points(dots$"start",  dots$"pos", type="p", pch= dots$"pch", cex= dots$"size" ,col=dots$"color",bg=dots$"color")
+
 
 
 # legeng
